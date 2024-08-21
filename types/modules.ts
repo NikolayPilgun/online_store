@@ -16,11 +16,11 @@ export interface IMenuLinkItemProps {
   handleRedirectToCatalog: (arg0: string) => void
 }
 
-// export interface ICatalogMenuButtonProps {
-//   name: string
-//   isActive: boolean
-//   handler: VoidFunction
-// }
+export interface ICatalogMenuButtonProps {
+  name: string
+  isActive: boolean
+  handler: VoidFunction
+}
 
 // export interface IProductsListItemProps {
 //   item: IProduct
