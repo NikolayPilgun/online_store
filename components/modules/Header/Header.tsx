@@ -4,6 +4,7 @@ import { openMenu, openSearchModal } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import { addOverflowHiddenToBody } from '@/lib/utils/common'
 import Link from 'next/link'
+import CartPopup from './CartPopup/CartPopup'
 import Menu from './Menu'
 
 const Header = () => {
@@ -47,10 +48,7 @@ const Header = () => {
             />
           </li>
           <li className='header__links__item'>
-            <Link
-              href='/cart'
-              className='header__links__item__btn header__links__item__btn--cart'
-            />
+            <CartPopup />
           </li>
           <li className='header__links__item header__links__item--profile'>
             <Link

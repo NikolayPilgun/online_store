@@ -12,7 +12,7 @@
   padding: 24px;
   padding-top: 88px;
   position: relative;
-  background-color: #152035;
+  background-color: #101828;
   width: 100%;
   min-height: 713px;
   background-image: url(/img/menu-bg-small.png);
@@ -45,7 +45,7 @@
 }
 
 .catalog-menu__title {
-  color: #e8e9ea;
+  color: #E8E9EA;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 32px;
@@ -65,7 +65,7 @@
 }
 
 .catalog-menu__list__item__btn {
-  color: #777c85;
+  color: #777C85;
   font-size: 16px;
   text-decoration: none;
 }
