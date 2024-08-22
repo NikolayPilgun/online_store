@@ -4,6 +4,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { handleCloseSearchModal } from '@/lib/utils/common'
 import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
+import Footer from '../modules/Footer/Footer'
 import Header from '../modules/Header/Header'
 import SearchModal from '../modules/Header/SearchModal'
 import MobileNavbar from '../modules/MobileNavbar/MobileNavbar'
@@ -33,7 +34,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }`}
         onClick={handleCloseSearchModal}
       />
-      <div>Footer</div>
+      <Footer />
     </>
   )
 }

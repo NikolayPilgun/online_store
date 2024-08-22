@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Logo from '@/components/elements/Logo/Logo.'
+import Logo from '@/components/elements/Logo/Logo'
 import { AllowedLangs } from '@/constants/lang'
 import { setLang } from '@/context/lang'
 import { $menuIsOpen, closeMenu } from '@/context/modals'

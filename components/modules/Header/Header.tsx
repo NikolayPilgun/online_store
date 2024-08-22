@@ -1,5 +1,5 @@
 'use client'
-import Logo from '@/components/elements/Logo/Logo.'
+import Logo from '@/components/elements/Logo/Logo'
 import { openMenu, openSearchModal } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import { addOverflowHiddenToBody } from '@/lib/utils/common'
