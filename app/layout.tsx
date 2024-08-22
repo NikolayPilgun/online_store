@@ -8,6 +8,7 @@ import './globalStyles/globals.css'
 import './globalStyles/header.css'
 import './globalStyles/menu.css'
 import './globalStyles/mobile-navbar.css'
+import './globalStyles/search-modal.css'
 
 export const metadata: Metadata = {
   title: 'Ростелеком',

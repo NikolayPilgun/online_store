@@ -119,132 +119,130 @@ const CatalogMenu = () => {
   ]
   return (
     <div className='catalog-menu' style={{ zIndex: popupZIndex }}>
-      <div className='catalog-menu-padding'>
-        <AnimatePresence>
-          {catalogMenuIsOpen && (
-            <motion.aside
-              initial={{ width: 0 }}
-              animate={{
-                width: '100%',
-              }}
-              exit={{
-                width: 0,
-                transition: { delay: 0.7, duration: 0.3 },
-              }}
-              className='catalog-menu__aside'
+      <AnimatePresence>
+        {catalogMenuIsOpen && (
+          <motion.aside
+            initial={{ width: 0 }}
+            animate={{
+              width: '100%',
+            }}
+            exit={{
+              width: 0,
+              transition: { delay: 0.7, duration: 0.3 },
+            }}
+            className='catalog-menu__aside'
+          >
+            <div className='catalog-menu__header'>
+              <Header />
+            </div>
+            <motion.div
+              className='catalog-menu__inner'
+              initial='closed'
+              animate='open'
+              exit='closed'
+              variants={sideVariants}
             >
-              <div className='catalog-menu__header'>
-                <Header />
-              </div>
-              <motion.div
-                className='catalog-menu__inner'
-                initial='closed'
-                animate='open'
-                exit='closed'
-                variants={sideVariants}
+              <motion.button
+                className='btn-reset catalog-menu__close'
+                variants={itemVariants}
+                onClick={handleCloseMenu}
+              />
+              <motion.h2
+                variants={itemVariants}
+                className='catalog-menu__title'
               >
-                <motion.button
-                  className='btn-reset catalog-menu__close'
-                  variants={itemVariants}
-                  onClick={handleCloseMenu}
-                />
-                <motion.h2
-                  variants={itemVariants}
-                  className='catalog-menu__title'
-                >
-                  {translations[lang].main_menu.catalog}
-                </motion.h2>
-                <ul className='list-reset catalog-menu__list'>
-                  {items.map(({ id, name, items, handler }) => {
-                    const buttonProps = (isActive: boolean) => ({
-                      handler: handler as VoidFunction,
-                      name,
-                      isActive,
-                    })
+                {translations[lang].main_menu.catalog}
+              </motion.h2>
+              <ul className='list-reset catalog-menu__list'>
+                {items.map(({ id, name, items, handler }) => {
+                  const buttonProps = (isActive: boolean) => ({
+                    handler: handler as VoidFunction,
+                    name,
+                    isActive,
+                  })
 
-                    const isCurrentList = (
-                      showList: boolean,
-                      currentId: number
-                    ) => showList && id === currentId
+                  const isCurrentList = (
+                    showList: boolean,
+                    currentId: number
+                  ) => showList && id === currentId
 
-                    return (
-                      <motion.li
-                        key={id}
-                        variants={itemVariants}
-                        className='catalog-menu__list__item'
-                      >
-                        {!isMedia450 && (
-                          <>
-                            {id === 1 && (
-                              <CatalogMenuButton
-                                {...buttonProps(isActiveList(1))}
-                              />
-                            )}
-                            {id === 2 && (
-                              <CatalogMenuButton
-                                {...buttonProps(isActiveList(2))}
-                              />
-                            )}
-                            {id === 3 && (
-                              <CatalogMenuButton
-                                {...buttonProps(isActiveList(3))}
-                              />
-                            )}
-                            {id === 4 && (
-                              <CatalogMenuButton
-                                {...buttonProps(isActiveList(4))}
-                              />
-                            )}
-                          </>
-                        )}
-                        {!isMedia450 && (
-                          <AnimatePresence>
-                            {isCurrentList(isActiveList(1), 1) && (
-                              <CatalogMenuList items={items} />
-                            )}
-                            {isCurrentList(isActiveList(2), 2) && (
-                              <CatalogMenuList items={items} />
-                            )}
-                            {isCurrentList(isActiveList(3), 3) && (
-                              <CatalogMenuList items={items} />
-                            )}
-                            {isCurrentList(isActiveList(4), 4) && (
-                              <CatalogMenuList items={items} />
-                            )}
-                          </AnimatePresence>
-                        )}
-                        {isMedia450 && (
-                          <Accordion
-                            title={name}
-                            titleClass='btn-reset nav-menu__accordion__item__title'
-                          >
-                            <ul className='list-reset catalog__accordion__list'>
-                              {items.map((item, i) => (
-                                <li
-                                  key={i}
-                                  className='catalog__accordion__list__item'
+                  return (
+                    <motion.li
+                      key={id}
+                      variants={itemVariants}
+                      className='catalog-menu__list__item'
+                    >
+                      {!isMedia450 && (
+                        <>
+                          {id === 1 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isActiveList(1))}
+                            />
+                          )}
+                          {id === 2 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isActiveList(2))}
+                            />
+                          )}
+                          {id === 3 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isActiveList(3))}
+                            />
+                          )}
+                          {id === 4 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isActiveList(4))}
+                            />
+                          )}
+                        </>
+                      )}
+                      {!isMedia450 && (
+                        <AnimatePresence>
+                          {isCurrentList(isActiveList(1), 1) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isActiveList(2), 2) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isActiveList(3), 3) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isActiveList(4), 4) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                        </AnimatePresence>
+                      )}
+                      {isMedia450 && (
+                        <Accordion
+                          title={name}
+                          titleClass='btn-reset nav-menu__accordion__item__title'
+                        >
+                          <ul className='list-reset catalog__accordion__list'>
+                            {items.map((item, i) => (
+                              <li
+                                key={i}
+                                className='catalog__accordion__list__item'
+                              >
+                                <Link
+                                  href={item.href}
+                                  className='nav-menu__accordion__item__list__item__link'
+                                  onClick={item.handleCloseMenu}
                                 >
-                                  <Link
-                                    href={item.href}
-                                    className='nav-menu__accordion__item__list__item__link'
-                                    onClick={item.handleCloseMenu}
-                                  >
-                                    {item.title}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </Accordion>
-                        )}
-                      </motion.li>
-                    )
-                  })}
-                </ul>
-              </motion.div>
-            </motion.aside>
-          )}
-        </AnimatePresence>
-      </div>
+                                  {item.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </Accordion>
+                      )}
+                    </motion.li>
+                  )
+                })}
+              </ul>
+            </motion.div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

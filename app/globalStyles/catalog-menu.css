@@ -7,19 +7,17 @@
   z-index: 2;
   overflow-y: auto;
 }
-.catalog-menu-padding {
+
+.catalog-menu__aside {
+  padding: 24px;
   padding-top: 88px;
   position: relative;
-  background-color: #101828;
+  background-color: #152035;
   width: 100%;
   min-height: 713px;
   background-image: url(/img/menu-bg-small.png);
   background-repeat: no-repeat;
   background-position: top 90px right;
-}
-
-.catalog-menu__aside {
-  padding: 24px;
 }
 
 .catalog-menu__header {

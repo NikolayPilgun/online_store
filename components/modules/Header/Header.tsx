@@ -1,6 +1,6 @@
 'use client'
 import Logo from '@/components/elements/Logo/Logo.'
-import { openMenu } from '@/context/modals'
+import { openMenu, openSearchModal } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import { addOverflowHiddenToBody } from '@/lib/utils/common'
 import Link from 'next/link'
@@ -12,6 +12,10 @@ const Header = () => {
   const handleOpenMenu = () => {
     addOverflowHiddenToBody()
     openMenu()
+  }
+  const handleOpenSearchModal = () => {
+    openSearchModal()
+    addOverflowHiddenToBody()
   }
   return (
     <header className='header'>
@@ -25,7 +29,10 @@ const Header = () => {
         </div>
         <ul className='list-reset header__links'>
           <li className='header__links__item'>
-            <button className='btn-reset header__links__item__btn header__links__item__btn--search' />
+            <button
+              className='btn-reset header__links__item__btn header__links__item__btn--search'
+              onClick={handleOpenSearchModal}
+            />
           </li>
           <li className='header__links__item'>
             <Link
